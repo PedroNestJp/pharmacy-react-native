@@ -4,15 +4,14 @@ import { Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 const ProductCard = ({ product, onPress, onAddToCartPress }) => {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress} onAddToCartPress >
+    <TouchableOpacity style={styles.card} onPress={onPress}>
       <Text style={styles.title}>{product.name}</Text>
       <Text>{product.price}</Text>
-      <Image source={require('../../assets/generic-photo.png')} style={styles.image}></Image>
-      <TouchableOpacity style={styles.addToCartButton} onPress={onAddToCartPress}>
+      <Image source={require('../../assets/generic-photo.png')} style={styles.image} />
+      <TouchableOpacity style={styles.addToCartButton} onPress={() => onAddToCartPress(product)}>
         <Text style={styles.addToCartButtonText}>Adicionar ao Carrinho</Text>
       </TouchableOpacity>
     </TouchableOpacity>
-
   );
 };
 
@@ -34,7 +33,7 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 8,
     marginBottom: 8,
-    resizeMode: "center",
+    resizeMode: 'center',
   },
   addToCartButton: {
     backgroundColor: '#3498db',
@@ -45,7 +44,7 @@ const styles = StyleSheet.create({
   addToCartButtonText: {
     color: '#fff',
     fontWeight: 'bold',
-  }
-})
+  },
+});
 
 export default ProductCard;
