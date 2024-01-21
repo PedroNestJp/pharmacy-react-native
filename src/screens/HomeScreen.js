@@ -59,7 +59,6 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Header title='Pharmacy App' />
-      <Text> {cartItems.length} {cartItems.length === 1 ? 'item' : 'itens'} </Text>
       <FlatList
         data={products}
         keyExtractor={(item) => item.id}

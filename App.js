@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CartScreen from './src/screens/CartScreen';
 import { CartProvider } from './CartContext';
+import LoginScreen from './src/screens/LoginScreen';
 
 // Configurar um navegador
 const Stack = createNativeStackNavigator();
@@ -15,13 +16,12 @@ export default function App() {
 
     <CartProvider>
       <NavigationContainer>
-        <View>
-          <StatusBar />
-        </View>
+        <StatusBar />
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="ProductDetailsScreen" component={ProductDetailsScreen} />
           <Stack.Screen name='CartScreen' component={CartScreen} />
+          <Stack.Screen name='LoginScreen' component={LoginScreen} />
           {/* Adicione mais telas conforme necessário */}
         </Stack.Navigator>
       </NavigationContainer>
