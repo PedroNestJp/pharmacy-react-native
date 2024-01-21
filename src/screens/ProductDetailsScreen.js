@@ -20,29 +20,37 @@ export const ProductDetailsScreen = ({ route, navigation }) => {
     navigation.navigate('CheckoutScreen', { product });
   };
 
+
   return (
     <View style={styles.container}>
       <Image source={require('../../assets/generic-photo.png')} style={styles.image} />
       <Text style={styles.title}>{product.name}</Text>
-      <Text style={styles.description}>{product.description}</Text>
+      <Text style={styles.description}>{product.shortDescription}</Text>
+      <Text style={styles.description}>{product.longDescription}</Text>
       <Text>Price: {product.price}</Text>
       {/* Adicione mais informações conforme necessário */}
-      <Button
-        title="Adicionar ao Carrinho"
-        onPress={() => addToCart(product)}
-        color="#007bff"
-      />
-      <Button
-        title="Comprar Agora"
-        onPress={() => comprarAgora(product)}
-        color="#4caf50"
-      />
-      {/* Botão de Voltar */}
-      <Button
-        title="Go Back"
-        onPress={() => navigation.goBack()}
-        color="#555"
-      />
+
+      {/* Ajuste para fixar os botões na parte inferior */}
+      <View style={styles.btnsContainer}>
+        <View style={styles.btnsBottom} >
+          <Button
+            title="Adicionar ao Carrinho"
+            onPress={() => addToCart(product)}
+            color="#007bff"
+          />
+          <Button
+            title="Comprar Agora"
+            onPress={() => comprarAgora(product)}
+            color="#4caf50"
+          />
+        </View>
+        {/* Botão de Voltar */}
+        <Button
+          title="Go Back"
+          onPress={() => navigation.goBack()}
+          color="#555"
+        />
+      </View>
     </View>
   );
 };
@@ -51,6 +59,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    position: 'relative', // Para permitir o posicionamento absoluto dos botões
   },
   title: {
     fontSize: 24,
@@ -67,5 +76,15 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 8,
     resizeMode: 'center',
+  },
+  btnsContainer: {
+    flex: 1,
+    justifyContent: 'flex-end', // Alinha os botões na parte inferior
+  },
+  btnsBottom: {
+    flexDirection: 'colunm',
+    gap:8,
+    justifyContent: 'space-between',
+    marginVertical: 16,
   },
 });

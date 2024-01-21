@@ -6,8 +6,9 @@ const ProductCard = ({ product, onPress, onAddToCartPress }) => {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <Text style={styles.title}>{product.name}</Text>
-      <Text>{product.price}</Text>
       <Image source={require('../../assets/generic-photo.png')} style={styles.image} />
+      <Text>{product.shortDescription}</Text>
+      <Text>{product.price}</Text>
       <TouchableOpacity style={styles.addToCartButton} onPress={() => onAddToCartPress(product)}>
         <Text style={styles.addToCartButtonText}>Adicionar ao Carrinho</Text>
       </TouchableOpacity>
