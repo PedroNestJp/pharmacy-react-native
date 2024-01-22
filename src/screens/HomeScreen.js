@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginLeft: 5,
   },
+
 });
 
 export default HomeScreen;
